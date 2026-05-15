@@ -4,17 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nisrina Fatinawati</title>
-  <meta
-    name="description"
-    content="Website tulisan Nisrina Fatinawati — ruang opini, puisi, cerpen, novel, dan art."
-  />
+  <meta name="description" content="Website tulisan Nisrina Fatinawati — ruang opini, puisi, cerpen, novel, dan art." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -72,17 +66,8 @@
       --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 
     body {
       min-height: 100dvh;
@@ -97,28 +82,10 @@
       line-height: 1.75;
     }
 
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    button {
-      border: none;
-      background: none;
-      cursor: pointer;
-    }
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { border: none; background: none; cursor: pointer; }
 
     :focus-visible {
       outline: 2px solid var(--color-primary);
@@ -132,99 +99,60 @@
     }
 
     .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 1rem;
-      z-index: 100;
-      padding: 0.75rem 1rem;
-      border-radius: 9999px;
-      background: var(--color-text);
-      color: var(--color-text-inverse);
+      position: absolute; left: -9999px; top: 1rem; z-index: 100;
+      padding: 0.75rem 1rem; border-radius: 9999px;
+      background: var(--color-text); color: var(--color-text-inverse);
     }
+    .skip-link:focus { left: 1rem; }
 
-    .skip-link:focus {
-      left: 1rem;
-    }
-
+    /* ===== HEADER ===== */
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(14px);
       background: color-mix(in srgb, var(--color-bg) 84%, transparent);
       border-bottom: 1px solid var(--color-divider);
     }
 
     .header-inner {
-      display: flex;
-      align-items: center;
+      display: flex; align-items: center;
       justify-content: space-between;
-      gap: var(--space-4);
-      padding: var(--space-4) 0;
+      gap: var(--space-4); padding: var(--space-4) 0;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      min-width: 0;
-    }
+    .brand { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
 
     .brand-mark {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
+      width: 3rem; height: 3rem; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0;
       border: 2px solid var(--color-primary);
       background: var(--color-surface);
     }
-
-    .brand-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
 
     .brand-title {
       font-family: var(--font-display);
-      font-size: 1.35rem;
-      line-height: 1;
-      letter-spacing: 0.02em;
-      font-weight: 700;
+      font-size: 1.35rem; line-height: 1;
+      letter-spacing: 0.02em; font-weight: 700;
     }
+    .brand-subtitle { color: var(--color-text-muted); font-size: var(--text-xs); }
 
-    .brand-subtitle {
-      color: var(--color-text-muted);
-      font-size: var(--text-xs);
-    }
-
-    .nav-wrap {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
+    .nav-wrap { display: flex; align-items: center; gap: var(--space-3); }
 
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      flex-wrap: wrap;
+      display: flex; align-items: center;
+      gap: var(--space-2); flex-wrap: wrap;
     }
 
     .nav-links a {
-      min-height: 44px;
-      padding: 0 var(--space-4);
+      min-height: 44px; padding: 0 var(--space-4);
       border-radius: var(--radius-full);
-      display: inline-flex;
-      align-items: center;
+      display: inline-flex; align-items: center;
       font-size: var(--text-sm);
       transition:
         background var(--transition-interactive),
         transform var(--transition-interactive),
         color var(--transition-interactive);
     }
-
     .nav-links a:hover {
       background: var(--color-surface);
       transform: translateY(-1px);
@@ -232,47 +160,39 @@
     }
 
     .lang-toggle {
-      display: flex;
-      align-items: center;
-      padding: 2px;
-      border-radius: var(--radius-full);
+      display: flex; align-items: center;
+      padding: 2px; border-radius: var(--radius-full);
       border: 1px solid var(--color-border);
       background: var(--color-surface);
+      flex-shrink: 0;
     }
 
     .lang-btn {
-      min-height: 36px;
-      padding: 0 var(--space-3);
+      min-height: 36px; padding: 0 var(--space-3);
       border-radius: var(--radius-full);
-      font-size: var(--text-sm);
-      font-weight: 800;
+      font-size: var(--text-sm); font-weight: 800;
       color: var(--color-text-muted);
       transition:
         background var(--transition-interactive),
         color var(--transition-interactive);
     }
-
     .lang-btn.active {
       background: linear-gradient(135deg, var(--color-primary), var(--color-primary-4));
       color: #5a3d4a;
     }
 
-    .hero {
-      padding: clamp(var(--space-16), 12vw, 8rem) 0 var(--space-16);
-    }
+    /* ===== HERO ===== */
+    .hero { padding: clamp(var(--space-16), 12vw, 8rem) 0 var(--space-16); }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.12fr 0.88fr;
-      gap: var(--space-8);
-      align-items: center;
+      gap: var(--space-8); align-items: center;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      flex-wrap: wrap;
+      display: inline-flex; align-items: center;
+      gap: var(--space-2); flex-wrap: wrap;
       margin-bottom: var(--space-4);
       padding: var(--space-2) var(--space-4);
       border-radius: var(--radius-full);
@@ -284,81 +204,55 @@
     }
 
     .tagline {
-      position: relative;
-      display: inline-block;
-      padding-bottom: 10px;
-      opacity: 0;
+      position: relative; display: inline-block;
+      padding-bottom: 10px; opacity: 0;
       animation: textFadeUp 0.8s ease-out forwards;
     }
-
     .tagline::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
+      content: ""; position: absolute;
+      left: 0; bottom: 0; width: 100%;
       border-bottom: 2px dotted var(--color-primary);
-      transform: scaleX(0);
-      transform-origin: left;
+      transform: scaleX(0); transform-origin: left;
       opacity: 0.35;
       animation: dottedReveal 0.9s ease-out forwards;
       animation-delay: 0.35s;
     }
 
-    h1,
-    h2,
-    .quote,
-    .profile-name,
-    .card-tag,
-    .newsletter h2 {
+    h1, h2, .quote, .profile-name, .card-tag, .newsletter h2 {
       font-family: var(--font-display);
     }
 
     h1 {
       font-size: clamp(2.4rem, 1.4rem + 3.2vw, 4.8rem);
-      line-height: 0.95;
-      letter-spacing: 0;
-      font-weight: 600;
+      line-height: 0.95; letter-spacing: 0; font-weight: 600;
     }
 
     .hero-copy {
-      margin-top: var(--space-5);
-      max-width: 58ch;
-      color: var(--color-text-muted);
-      font-size: 1.05rem;
+      margin-top: var(--space-5); max-width: 58ch;
+      color: var(--color-text-muted); font-size: 1.05rem;
     }
 
     .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      margin-top: var(--space-6);
+      display: flex; flex-wrap: wrap;
+      gap: var(--space-3); margin-top: var(--space-6);
     }
 
     .btn {
-      min-height: 48px;
-      padding: 0 var(--space-5);
+      min-height: 48px; padding: 0 var(--space-5);
       border-radius: var(--radius-full);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
+      display: inline-flex; align-items: center;
+      justify-content: center; font-weight: 800;
       transition:
         transform var(--transition-interactive),
         box-shadow var(--transition-interactive),
         background var(--transition-interactive);
     }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--color-primary), var(--color-primary-4));
-      color: #5a3d4a;
-      box-shadow: var(--shadow-md);
+      color: #5a3d4a; box-shadow: var(--shadow-md);
     }
-
     .btn-secondary {
       background: rgba(255, 255, 255, 0.72);
       border: 1px solid var(--color-border);
@@ -366,12 +260,9 @@
     }
 
     .profile-card {
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-4);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      align-items: center; gap: var(--space-4);
       padding: clamp(var(--space-6), 4vw, var(--space-8));
       border-radius: var(--radius-xl);
       border: 1px solid var(--color-border);
@@ -381,97 +272,41 @@
     }
 
     .profile-photo {
-      width: 148px;
-      height: 148px;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
+      width: 148px; height: 148px;
+      border-radius: 50%; overflow: hidden; flex-shrink: 0;
       border: 4px solid var(--color-primary);
       box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-primary) 18%, transparent);
     }
+    .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
 
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .profile-name { font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem); letter-spacing: 0.03em; }
 
-    .profile-name {
-      font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
-      letter-spacing: 0.03em;
-    }
+    .profile-tagline { max-width: 24ch; color: var(--color-text-muted); font-size: var(--text-sm); }
 
-    .profile-tagline {
-      max-width: 24ch;
-      color: var(--color-text-muted);
-      font-size: var(--text-sm);
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--space-2);
-    }
+    .badge-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); }
 
     .badge {
       padding: var(--space-1) var(--space-3);
       border-radius: var(--radius-full);
       border: 1px solid var(--color-border);
       background: var(--color-surface-offset-2);
-      color: var(--color-text-muted);
-      font-size: var(--text-xs);
+      color: var(--color-text-muted); font-size: var(--text-xs);
     }
 
-    .bubble {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(1px);
-      opacity: 0.4;
-    }
+    .bubble { position: absolute; border-radius: 50%; filter: blur(1px); opacity: 0.4; }
+    .bubble-a { top: -22px; right: -16px; width: 110px; height: 110px; background: rgba(217, 149, 177, 0.22); }
+    .bubble-b { bottom: 18px; left: -16px; width: 80px; height: 80px; background: rgba(185, 216, 203, 0.25); }
 
-    .bubble-a {
-      top: -22px;
-      right: -16px;
-      width: 110px;
-      height: 110px;
-      background: rgba(217, 149, 177, 0.22);
-    }
-
-    .bubble-b {
-      bottom: 18px;
-      left: -16px;
-      width: 80px;
-      height: 80px;
-      background: rgba(185, 216, 203, 0.25);
-    }
-
-    section {
-      padding: var(--space-10) 0;
-    }
+    /* ===== SECTIONS ===== */
+    section { padding: var(--space-10) 0; }
 
     .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: var(--space-4);
-      flex-wrap: wrap;
-      margin-bottom: var(--space-6);
+      display: flex; justify-content: space-between;
+      align-items: end; gap: var(--space-4);
+      flex-wrap: wrap; margin-bottom: var(--space-6);
     }
-
-    .section-head h2,
-    .about-card h2 {
-      font-size: var(--text-xl);
-      line-height: 1;
-      letter-spacing: 0.03em;
-    }
-
-    .section-head p,
-    .about-card p,
-    .newsletter p,
-    .card p {
-      color: var(--color-text-muted);
-    }
+    .section-head h2, .about-card h2 { font-size: var(--text-xl); line-height: 1; letter-spacing: 0.03em; }
+    .section-head p, .about-card p, .newsletter p, .card p { color: var(--color-text-muted); }
 
     .cards {
       display: grid;
@@ -480,90 +315,49 @@
     }
 
     .card {
-      display: flex;
-      flex-direction: column;
+      display: flex; flex-direction: column;
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-xl);
-      padding: var(--space-5);
-      box-shadow: var(--shadow-sm);
-      transition:
-        transform var(--transition-interactive),
-        box-shadow var(--transition-interactive);
+      padding: var(--space-5); box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-interactive), box-shadow var(--transition-interactive);
     }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 
     .card-tag {
-      display: inline-flex;
-      align-self: flex-start;
+      display: inline-flex; align-self: flex-start;
       margin-bottom: var(--space-4);
       padding: var(--space-2) var(--space-3);
       border-radius: var(--radius-full);
-      font-size: var(--text-xs);
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-size: var(--text-xs); font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase;
     }
 
-    .tag-opini {
-      background: rgba(217, 149, 177, 0.2);
-      color: #9c6079;
-    }
+    .tag-opini { background: rgba(217, 149, 177, 0.2); color: #9c6079; }
+    .tag-puisi { background: rgba(185, 216, 203, 0.28); color: #4f7f6d; }
+    .tag-cerita { background: rgba(199, 201, 245, 0.28); color: #5f6da6; }
+    .tag-art { background: rgba(245, 210, 172, 0.34); color: #b0761d; }
 
-    .tag-puisi {
-      background: rgba(185, 216, 203, 0.28);
-      color: #4f7f6d;
-    }
-
-    .tag-cerita {
-      background: rgba(199, 201, 245, 0.28);
-      color: #5f6da6;
-    }
-
-    .tag-art {
-      background: rgba(245, 210, 172, 0.34);
-      color: #b0761d;
-    }
-
-    .card h3 {
-      font-size: var(--text-lg);
-      line-height: 1.2;
-      margin-bottom: var(--space-3);
-    }
-
-    .card h3 a:hover {
-      color: #9c6079;
-    }
-
-    .card p {
-      margin-bottom: var(--space-4);
-    }
+    .card h3 { font-size: var(--text-lg); line-height: 1.2; margin-bottom: var(--space-3); }
+    .card h3 a:hover { color: #9c6079; }
+    .card p { margin-bottom: var(--space-4); }
 
     .meta {
-      display: flex;
-      justify-content: space-between;
-      gap: var(--space-3);
-      margin-top: auto;
+      display: flex; justify-content: space-between;
+      gap: var(--space-3); margin-top: auto;
       padding-top: var(--space-4);
       border-top: 1px solid var(--color-divider);
-      font-size: var(--text-sm);
-      color: var(--color-text-faint);
+      font-size: var(--text-sm); color: var(--color-text-faint);
       flex-wrap: wrap;
     }
 
     .feature-layout {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: var(--space-5);
-      align-items: stretch;
+      gap: var(--space-5); align-items: stretch;
     }
 
-    .feature-panel,
-    .about-card {
+    .feature-panel, .about-card {
       padding: clamp(var(--space-5), 4vw, var(--space-8));
       border-radius: var(--radius-xl);
       border: 1px solid var(--color-border);
@@ -573,57 +367,34 @@
 
     .quote {
       font-size: clamp(1.2rem, 1rem + 0.9vw, 1.7rem);
-      line-height: 1.3;
-      letter-spacing: 0.02em;
+      line-height: 1.3; letter-spacing: 0.02em;
       margin-bottom: var(--space-4);
     }
 
-    .soft-list {
-      display: grid;
-      gap: var(--space-3);
-      margin-top: var(--space-5);
-      list-style: none;
-    }
-
+    .soft-list { display: grid; gap: var(--space-3); margin-top: var(--space-5); list-style: none; }
     .soft-list li {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      padding: var(--space-4);
-      border-radius: var(--radius-lg);
+      display: flex; align-items: center; gap: var(--space-3);
+      padding: var(--space-4); border-radius: var(--radius-lg);
       border: 1px solid var(--color-divider);
       background: color-mix(in srgb, var(--color-surface-2) 84%, white);
     }
 
     .icon-dot {
-      width: 2.25rem;
-      height: 2.25rem;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
+      width: 2.25rem; height: 2.25rem; flex-shrink: 0;
+      display: grid; place-items: center; border-radius: 50%;
       background: linear-gradient(135deg, var(--color-primary-2), var(--color-primary-3));
     }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      margin-top: var(--space-5);
-    }
-
+    .pill-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-5); }
     .pill {
       padding: var(--space-2) var(--space-3);
       border-radius: var(--radius-full);
       border: 1px solid var(--color-border);
       background: var(--color-surface-offset-2);
-      color: var(--color-text-muted);
-      font-size: var(--text-sm);
+      color: var(--color-text-muted); font-size: var(--text-sm);
     }
 
-    .about-card p + p {
-      margin-top: var(--space-4);
-    }
+    .about-card p + p { margin-top: var(--space-4); }
 
     .newsletter {
       text-align: center;
@@ -639,154 +410,73 @@
     }
 
     .newsletter h2 {
-      font-size: var(--text-2xl);
-      line-height: 1;
-      margin-bottom: var(--space-4);
-      letter-spacing: 0.02em;
+      font-size: var(--text-2xl); line-height: 1;
+      margin-bottom: var(--space-4); letter-spacing: 0.02em;
     }
-
-    .newsletter p {
-      max-width: 44ch;
-      margin-inline: auto;
-      margin-bottom: var(--space-6);
-    }
+    .newsletter p { max-width: 44ch; margin-inline: auto; margin-bottom: var(--space-6); }
 
     .newsletter-form {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: var(--space-3);
+      display: flex; justify-content: center;
+      flex-wrap: wrap; gap: var(--space-3);
     }
 
     .newsletter input {
-      min-width: min(100%, 320px);
-      min-height: 50px;
-      padding: 0 var(--space-5);
-      border-radius: var(--radius-full);
+      min-width: min(100%, 320px); min-height: 50px;
+      padding: 0 var(--space-5); border-radius: var(--radius-full);
       border: 1px solid var(--color-border);
       background: rgba(255, 255, 255, 0.72);
       color: var(--color-text);
     }
 
-    .site-footer {
-      padding: var(--space-10) 0 var(--space-12);
-      color: var(--color-text-muted);
-    }
-
+    .site-footer { padding: var(--space-10) 0 var(--space-12); color: var(--color-text-muted); }
     .footer-box {
-      display: flex;
-      justify-content: space-between;
-      gap: var(--space-4);
-      flex-wrap: wrap;
+      display: flex; justify-content: space-between;
+      gap: var(--space-4); flex-wrap: wrap;
       padding-top: var(--space-5);
       border-top: 1px solid var(--color-divider);
     }
 
-    [data-lang-content] {
-      display: none;
-    }
-
-    [data-lang-content].is-visible {
-      display: block;
-    }
-
+    /* ===== LANG SYSTEM ===== */
+    [data-lang-content] { display: none; }
+    [data-lang-content].is-visible { display: block; }
     a[data-lang-content].is-visible,
-    button[data-lang-content].is-visible,
-    input[data-lang-content].is-visible {
-      display: inline-flex;
-    }
+    button[data-lang-content].is-visible { display: inline-flex; }
+    input[data-lang-content].is-visible { display: block; }
 
-    input[data-lang-content].is-visible {
-      display: block;
-    }
+    [data-lang-inline] { display: none; }
+    [data-lang-inline].is-visible-inline { display: inline; }
+    [data-lang-inline].tagline.is-visible-inline { display: inline-block; }
 
-    [data-lang-inline] {
-      display: none;
-    }
+    /* Nav bilingual: nav element sendiri pakai data-lang-content */
+    nav[data-lang-content].is-visible { display: flex; }
 
-    [data-lang-inline].is-visible-inline {
-      display: inline;
-    }
-
-    [data-lang-inline].tagline.is-visible-inline {
-      display: inline-block;
-    }
-
+    /* ===== ANIMATIONS ===== */
     @keyframes textFadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(6px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes dottedReveal {
-      from {
-        transform: scaleX(0);
-        opacity: 0.2;
-      }
-      to {
-        transform: scaleX(1);
-        opacity: 1;
-      }
+      from { transform: scaleX(0); opacity: 0.2; }
+      to { transform: scaleX(1); opacity: 1; }
     }
 
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 920px) {
-      .hero-grid,
-      .feature-layout,
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        align-items: start;
-        flex-direction: column;
-      }
+      .hero-grid, .feature-layout, .cards { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
     }
-
     @media (max-width: 900px) {
-      .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-wrap {
-        width: 100%;
-        justify-content: space-between;
-      }
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      .nav-wrap { width: 100%; justify-content: space-between; }
     }
-
     @media (max-width: 640px) {
-      .nav-wrap {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .nav-links {
-        justify-content: space-between;
-      }
-
-      .nav-links a {
-        flex: 1 1 auto;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-      }
-
-      .newsletter input,
-      .newsletter .btn {
-        width: 100%;
-      }
-
-      h1 {
-        line-height: 1;
-      }
+      .nav-wrap { flex-direction: column; align-items: stretch; }
+      .nav-links { justify-content: space-between; }
+      .nav-links a { flex: 1 1 auto; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter input, .newsletter .btn { width: 100%; }
+      h1 { line-height: 1; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       * {
         scroll-behavior: auto !important;
@@ -808,32 +498,36 @@
         </div>
         <div>
           <div class="brand-title">NisrinArt</div>
-          <p class="brand-subtitle" data-lang-content="id">Ruang kata, warna & imajinasi</p>
-          <p class="brand-subtitle" data-lang-content="en">Space for words, art & imagination</p>
+          <p class="brand-subtitle" data-lang-content="id">Ruang kata, warna &amp; imajinasi</p>
+          <p class="brand-subtitle" data-lang-content="en">Space for words, art &amp; imagination</p>
         </div>
       </a>
 
       <div class="nav-wrap">
-        <nav class="nav-links" aria-label="Navigasi utama">
-          <a href="#home" data-lang-content="id">Beranda</a>
-          <a href="#home" data-lang-content="en">Home</a>
-          <a href="#karya" data-lang-content="id">Karya</a>
-          <a href="#karya" data-lang-content="en">Works</a>
-          <a href="#tentang" data-lang-content="id">Tentang</a>
-          <a href="#tentang" data-lang-content="en">About</a>
-          <a href="#kontak" data-lang-content="id">Kontak</a>
-          <a href="#kontak" data-lang-content="en">Contact</a>
+        <!-- Dua nav terpisah — masing-masing satu bahasa, tidak pernah tampil bersamaan -->
+        <nav class="nav-links" aria-label="Navigasi utama" data-lang-content="id">
+          <a href="#home">Beranda</a>
+          <a href="#karya">Karya</a>
+          <a href="#tentang">Tentang</a>
+          <a href="#kontak">Kontak</a>
+        </nav>
+        <nav class="nav-links" aria-label="Main navigation" data-lang-content="en">
+          <a href="#home">Home</a>
+          <a href="#karya">Works</a>
+          <a href="#tentang">About</a>
+          <a href="#kontak">Contact</a>
         </nav>
 
-        <div class="lang-toggle" role="group" aria-label="Pilih bahasa">
-          <button class="lang-btn" data-lang="id" type="button" aria-label="Bahasa Indonesia">ID</button>
-          <button class="lang-btn" data-lang="en" type="button" aria-label="English">EN</button>
+        <div class="lang-toggle" role="group" aria-label="Pilih bahasa / Choose language">
+          <button class="lang-btn" data-lang="id" type="button" aria-label="Bahasa Indonesia" aria-pressed="false">ID</button>
+          <button class="lang-btn" data-lang="en" type="button" aria-label="English" aria-pressed="false">EN</button>
         </div>
       </div>
     </div>
   </header>
 
   <main id="content">
+    <!-- HERO -->
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div>
@@ -865,20 +559,12 @@
         <aside class="profile-card" aria-label="Profil Nisrina Fatinawati">
           <div class="bubble bubble-a"></div>
           <div class="bubble bubble-b"></div>
-
           <div class="profile-photo">
-            <img src="./assets/avatar.jpg" alt="Nisrina Fatinawati" width="148" height="148" />
+            <img src="./assets/avatar.jpg" alt="Nisrina Fatinawati" width="148" height="148" loading="lazy" />
           </div>
-
           <div class="profile-name">NISRINA FATINAWATI</div>
-
-          <p class="profile-tagline" data-lang-content="id">
-            Penulis · Seniman · Pemimpi kecil yang suka buku dan es krim
-          </p>
-          <p class="profile-tagline" data-lang-content="en">
-            Writer · Artist · A tiny dreamer who loves books and ice cream
-          </p>
-
+          <p class="profile-tagline" data-lang-content="id">Penulis · Seniman · Pemimpi kecil yang suka buku dan es krim</p>
+          <p class="profile-tagline" data-lang-content="en">Writer · Artist · A tiny dreamer who loves books and ice cream</p>
           <div class="badge-row">
             <span class="badge">INFP</span>
             <span class="badge">Opini</span>
@@ -890,40 +576,29 @@
       </div>
     </section>
 
+    <!-- KARYA -->
     <section id="karya">
       <div class="container">
         <div class="section-head">
-          <h2 data-lang-content="id">Rak Tulisan</h2>
-          <h2 data-lang-content="en">Works</h2>
-
-          <p data-lang-content="id">
-            Dari opini yang menggigit pelan hingga puisi yang tinggal diam di kepala.
-          </p>
-          <p data-lang-content="en">
-            From opinions that bite softly to poetry that quietly stays in your head.
-          </p>
+          <div>
+            <h2 data-lang-content="id">Rak Tulisan</h2>
+            <h2 data-lang-content="en">Works</h2>
+          </div>
+          <p data-lang-content="id">Dari opini yang menggigit pelan hingga puisi yang tinggal diam di kepala.</p>
+          <p data-lang-content="en">From opinions that bite softly to poetry that quietly stays in your head.</p>
         </div>
 
         <div class="cards">
           <article class="card">
             <div class="card-tag tag-opini">
-              <span data-lang-inline="id">Opini</span>
-              <span data-lang-inline="en">Opinion</span>
+              <span data-lang-inline="id">Opini</span><span data-lang-inline="en">Opinion</span>
             </div>
             <h3>
-              <a href="./karya/ketika-sunyi-lebih-jujur.html" data-lang-content="id">
-                Ketika sunyi lebih jujur daripada keramaian
-              </a>
-              <a href="./karya/ketika-sunyi-lebih-jujur.html" data-lang-content="en">
-                When silence is more honest than noise
-              </a>
+              <a href="./karya/ketika-sunyi-lebih-jujur.html" data-lang-content="id">Ketika sunyi lebih jujur daripada keramaian</a>
+              <a href="./karya/ketika-sunyi-lebih-jujur.html" data-lang-content="en">When silence is more honest than noise</a>
             </h3>
-            <p data-lang-content="id">
-              Sebuah catatan tentang cara manusia menyembunyikan luka di balik jadwal, tawa, dan notifikasi.
-            </p>
-            <p data-lang-content="en">
-              A note on how humans hide their wounds behind schedules, laughter, and notifications.
-            </p>
+            <p data-lang-content="id">Sebuah catatan tentang cara manusia menyembunyikan luka di balik jadwal, tawa, dan notifikasi.</p>
+            <p data-lang-content="en">A note on how humans hide their wounds behind schedules, laughter, and notifications.</p>
             <div class="meta">
               <span data-lang-content="id">6 menit baca</span>
               <span data-lang-content="en">6 min read</span>
@@ -933,23 +608,14 @@
 
           <article class="card">
             <div class="card-tag tag-puisi">
-              <span data-lang-inline="id">Puisi</span>
-              <span data-lang-inline="en">Poetry</span>
+              <span data-lang-inline="id">Puisi</span><span data-lang-inline="en">Poetry</span>
             </div>
             <h3>
-              <a href="./karya/di-meja-tempat-hujan.html" data-lang-content="id">
-                Di meja tempat hujan belajar mengeja namamu
-              </a>
-              <a href="./karya/di-meja-tempat-hujan.html" data-lang-content="en">
-                At the table where rain learns to spell your name
-              </a>
+              <a href="./karya/di-meja-tempat-hujan.html" data-lang-content="id">Di meja tempat hujan belajar mengeja namamu</a>
+              <a href="./karya/di-meja-tempat-hujan.html" data-lang-content="en">At the table where rain learns to spell your name</a>
             </h3>
-            <p data-lang-content="id">
-              Puisi tentang rindu yang datang tidak seperti petir, melainkan seperti lampu yang lupa dimatikan.
-            </p>
-            <p data-lang-content="en">
-              A poem about longing that comes not like lightning, but like a lamp someone forgot to turn off.
-            </p>
+            <p data-lang-content="id">Puisi tentang rindu yang datang tidak seperti petir, melainkan seperti lampu yang lupa dimatikan.</p>
+            <p data-lang-content="en">A poem about longing that comes not like lightning, but like a lamp someone forgot to turn off.</p>
             <div class="meta">
               <span data-lang-content="id">Puisi bebas</span>
               <span data-lang-content="en">Free verse</span>
@@ -959,23 +625,14 @@
 
           <article class="card">
             <div class="card-tag tag-cerita">
-              <span data-lang-inline="id">Cerpen</span>
-              <span data-lang-inline="en">Short Story</span>
+              <span data-lang-inline="id">Cerpen</span><span data-lang-inline="en">Short Story</span>
             </div>
             <h3>
-              <a href="./karya/teddy-bear-di-jendela.html" data-lang-content="id">
-                Teddy bear di jendela lantai dua
-              </a>
-              <a href="./karya/teddy-bear-di-jendela.html" data-lang-content="en">
-                The teddy bear by the second floor window
-              </a>
+              <a href="./karya/teddy-bear-di-jendela.html" data-lang-content="id">Teddy bear di jendela lantai dua</a>
+              <a href="./karya/teddy-bear-di-jendela.html" data-lang-content="en">The teddy bear by the second floor window</a>
             </h3>
-            <p data-lang-content="id">
-              Cerita hangat tentang seorang gadis, rumah lama, dan benda kecil yang menyimpan rahasia keluarga.
-            </p>
-            <p data-lang-content="en">
-              A warm story about a girl, an old house, and tiny objects that hold family secrets.
-            </p>
+            <p data-lang-content="id">Cerita hangat tentang seorang gadis, rumah lama, dan benda kecil yang menyimpan rahasia keluarga.</p>
+            <p data-lang-content="en">A warm story about a girl, an old house, and tiny objects that hold family secrets.</p>
             <div class="meta">
               <span data-lang-content="id">Fiksi domestik</span>
               <span data-lang-content="en">Domestic fiction</span>
@@ -987,19 +644,11 @@
           <article class="card">
             <div class="card-tag tag-art">Art</div>
             <h3>
-              <a href="./karya/art.html" data-lang-content="id">
-                Sketsa kecil: es krim, buku, dan sore pastel
-              </a>
-              <a href="./karya/art.html" data-lang-content="en">
-                Small sketches: ice cream, books & pastel afternoons
-              </a>
+              <a href="./karya/art.html" data-lang-content="id">Sketsa kecil: es krim, buku, dan sore pastel</a>
+              <a href="./karya/art.html" data-lang-content="en">Small sketches: ice cream, books &amp; pastel afternoons</a>
             </h3>
-            <p data-lang-content="id">
-              Ruang untuk ilustrasi, moodboard, dan art ringan yang menyatu dengan tulisan.
-            </p>
-            <p data-lang-content="en">
-              Space for illustrations, moodboards, and gentle art that blends with writing.
-            </p>
+            <p data-lang-content="id">Ruang untuk ilustrasi, moodboard, dan art ringan yang menyatu dengan tulisan.</p>
+            <p data-lang-content="en">Space for illustrations, moodboards, and gentle art that blends with writing.</p>
             <div class="meta">
               <span>Visual diary</span>
               <span>Coming soon</span>
@@ -1008,23 +657,14 @@
 
           <article class="card">
             <div class="card-tag tag-cerita">
-              <span data-lang-inline="id">Novel</span>
-              <span data-lang-inline="en">Novel</span>
+              <span data-lang-inline="id">Novel</span><span data-lang-inline="en">Novel</span>
             </div>
             <h3>
-              <a href="./karya/novel.html" data-lang-content="id">
-                Rumah yang tumbuh dari halaman belakang
-              </a>
-              <a href="./karya/novel.html" data-lang-content="en">
-                The house that grew from the backyard
-              </a>
+              <a href="./karya/novel.html" data-lang-content="id">Rumah yang tumbuh dari halaman belakang</a>
+              <a href="./karya/novel.html" data-lang-content="en">The house that grew from the backyard</a>
             </h3>
-            <p data-lang-content="id">
-              Serial novel yang bisa diikuti per bab — cocok untuk pembaca yang suka cerita perlahan.
-            </p>
-            <p data-lang-content="en">
-              A serial novel readable chapter by chapter — for readers who love a slow story.
-            </p>
+            <p data-lang-content="id">Serial novel yang bisa diikuti per bab — cocok untuk pembaca yang suka cerita perlahan.</p>
+            <p data-lang-content="en">A serial novel readable chapter by chapter — for readers who love a slow story.</p>
             <div class="meta">
               <span>Chapter series</span>
               <span>Coming soon</span>
@@ -1033,17 +673,12 @@
 
           <article class="card">
             <div class="card-tag tag-opini">
-              <span data-lang-inline="id">Catatan</span>
-              <span data-lang-inline="en">Notes</span>
+              <span data-lang-inline="id">Catatan</span><span data-lang-inline="en">Notes</span>
             </div>
             <h3 data-lang-content="id">Menulis sebagai cara pulang ke diri sendiri</h3>
             <h3 data-lang-content="en">Writing as a way back to yourself</h3>
-            <p data-lang-content="id">
-              Kolom refleksi personal untuk pengalaman batin dan pandangan kecil yang ingin tinggal lebih lama.
-            </p>
-            <p data-lang-content="en">
-              A personal reflection column for inner experiences and small thoughts that want to linger.
-            </p>
+            <p data-lang-content="id">Kolom refleksi personal untuk pengalaman batin dan pandangan kecil yang ingin tinggal lebih lama.</p>
+            <p data-lang-content="en">A personal reflection column for inner experiences and small thoughts that want to linger.</p>
             <div class="meta">
               <span>Personal note</span>
               <span data-lang-content="id">5 menit baca</span>
@@ -1054,6 +689,7 @@
       </div>
     </section>
 
+    <!-- FEATURE + ABOUT -->
     <section>
       <div class="container feature-layout">
         <div class="feature-panel">
@@ -1063,7 +699,6 @@
           <p class="quote" data-lang-content="en">
             "Here, writing doesn't need to shout to be heard. It only needs to be honest, gentle, then stay."
           </p>
-
           <ul class="soft-list">
             <li>
               <span class="icon-dot">📚</span>
@@ -1093,10 +728,8 @@
             <span data-lang-inline="id">Tentang</span>
             <span data-lang-inline="en">About</span>
           </div>
-
           <h2 data-lang-content="id">Hei, Nisrina<br />Di sini!</h2>
           <h2 data-lang-content="en">Hey, Nisrina<br />Here!</h2>
-
           <p data-lang-content="id">
             Nisrina Fatinawati menulis seperti seseorang yang sedang merapikan kelopak bunga di meja kayu:
             telaten, lembut, dan diam-diam penuh arah.
@@ -1105,7 +738,6 @@
             Nisrina Fatinawati writes like someone carefully arranging flower petals on a wooden table:
             patient, gentle, and quietly purposeful.
           </p>
-
           <p data-lang-content="id">
             Website ini dibuat sebagai rumah untuk opini, puisi, cerpen, novel, dan art yang tumbuh dari
             imajinasi dan pengalaman sehari-hari.
@@ -1114,10 +746,9 @@
             This website was built as a home for opinions, poetry, short stories, novels, and art that grow
             from daily imagination and experience.
           </p>
-
           <div class="pill-row">
-            <span class="pill" data-lang-content="id">Pastel & putih</span>
-            <span class="pill" data-lang-content="en">Pastel & white</span>
+            <span class="pill" data-lang-content="id">Pastel &amp; putih</span>
+            <span class="pill" data-lang-content="en">Pastel &amp; white</span>
             <span class="pill" data-lang-content="id">Colorful tapi soft</span>
             <span class="pill" data-lang-content="en">Colorful yet soft</span>
             <span class="pill">INFP energy</span>
@@ -1127,32 +758,17 @@
       </div>
     </section>
 
+    <!-- KONTAK -->
     <section id="kontak">
       <div class="container">
         <div class="newsletter">
           <h2 data-lang-content="id">Ruang ini tumbuh pelan-pelan.</h2>
           <h2 data-lang-content="en">This space grows slowly.</h2>
-
-          <p data-lang-content="id">
-            Kirim sapaan, kolaborasi, atau sekadar bilang halo — semua disambut dengan hangat di sini.
-          </p>
-          <p data-lang-content="en">
-            Send a hello, a collaboration proposal, or just say hi — all are warmly welcomed here.
-          </p>
-
-          <form class="newsletter-form">
-            <input
-              type="email"
-              placeholder="Alamat emailmu"
-              aria-label="Alamat email"
-              data-lang-content="id"
-            />
-            <input
-              type="email"
-              placeholder="Your email address"
-              aria-label="Email address"
-              data-lang-content="en"
-            />
+          <p data-lang-content="id">Kirim sapaan, kolaborasi, atau sekadar bilang halo — semua disambut dengan hangat di sini.</p>
+          <p data-lang-content="en">Send a hello, a collaboration proposal, or just say hi — all are warmly welcomed here.</p>
+          <form class="newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="Alamat emailmu" aria-label="Alamat email" data-lang-content="id" />
+            <input type="email" placeholder="Your email address" aria-label="Email address" data-lang-content="en" />
             <button type="button" class="btn btn-primary" data-lang-content="id">Kirim sapaan ✉️</button>
             <button type="button" class="btn btn-primary" data-lang-content="en">Send a hello ✉️</button>
           </form>
@@ -1172,30 +788,30 @@
 
   <script>
     (function () {
-      const defaultLang = "id";
-      const btns = document.querySelectorAll(".lang-btn");
-      const blockItems = document.querySelectorAll("[data-lang-content]");
-      const inlineItems = document.querySelectorAll("[data-lang-inline]");
+      var defaultLang = "id";
+      var btns = document.querySelectorAll(".lang-btn");
+      var blockItems = document.querySelectorAll("[data-lang-content]");
+      var inlineItems = document.querySelectorAll("[data-lang-inline]");
 
       function showLang(lang) {
         document.documentElement.setAttribute("lang", lang);
 
-        btns.forEach((btn) => {
-          const isActive = btn.dataset.lang === lang;
+        btns.forEach(function (btn) {
+          var isActive = btn.dataset.lang === lang;
           btn.classList.toggle("active", isActive);
           btn.setAttribute("aria-pressed", isActive ? "true" : "false");
         });
 
-        blockItems.forEach((el) => {
+        blockItems.forEach(function (el) {
           el.classList.toggle("is-visible", el.dataset.langContent === lang);
         });
 
-        inlineItems.forEach((el) => {
+        inlineItems.forEach(function (el) {
           el.classList.toggle("is-visible-inline", el.dataset.langInline === lang);
         });
       }
 
-      btns.forEach((btn) => {
+      btns.forEach(function (btn) {
         btn.addEventListener("click", function () {
           showLang(btn.dataset.lang);
         });
