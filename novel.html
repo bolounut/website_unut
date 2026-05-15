@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <span data-id><title>Novel: Rumah yang Tumbuh — Nisrina Fatinawati</title></span><span data-en><title>Novel: The House That Grew — Nisrina Fatinawati</title></span>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text-xs: clamp(0.75rem,.7rem + .25vw,.875rem);
+      --text-sm: clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base: clamp(1rem,.95rem + .25vw,1.125rem);
+      --text-lg: clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl: clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+      --text-2xl: clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;
+      --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
+      --space-12:3rem;--space-16:4rem;
+      --color-bg:#fffdfb; --color-surface:#fff8fb; --color-surface-2:#f9f9ff;
+      --color-surface-offset:#fff2e8; --color-surface-offset-2:#eef8f4;
+      --color-border:rgba(70,54,76,.12); --color-divider:rgba(70,54,76,.08);
+      --color-text:#433647; --color-text-muted:#7a6a7f; --color-text-faint:#aa9bb0;
+      --color-primary:#e59bb7; --color-primary-2:#a9d7c3;
+      --color-primary-3:#b8c7f3; --color-primary-4:#ffd9a8;
+      --radius-sm:.5rem;--radius-md:.9rem;--radius-lg:1.25rem;
+      --radius-xl:1.8rem;--radius-full:9999px;
+      --shadow-sm:0 1px 2px rgba(82,61,89,.05);
+      --shadow-md:0 10px 30px rgba(82,61,89,.08);
+      --shadow-lg:0 18px 50px rgba(82,61,89,.12);
+      --font-display:'Orbitron','Nunito',sans-serif;
+      --font-body:'Nunito',sans-serif;
+      --transition-interactive:180ms cubic-bezier(.16,1,.3,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100dvh;
+      background:radial-gradient(circle at top left,rgba(229,155,183,.14),transparent 28%),
+        radial-gradient(circle at bottom right,rgba(184,199,243,.14),transparent 30%),
+        var(--color-bg);
+      color:var(--color-text);font-family:var(--font-body);font-size:var(--text-base);line-height:1.7
+    }
+    img{display:block;max-width:100%;height:auto}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;border:none;background:none;cursor:pointer}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    .container{width:min(calc(100% - 2rem),1080px);margin-inline:auto}
+    .narrow{width:min(calc(100% - 2rem),760px);margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+      background:color-mix(in srgb,var(--color-bg) 82%,transparent);
+      border-bottom:1px solid var(--color-divider)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-4) 0}
+    .brand{display:flex;align-items:center;gap:var(--space-3);text-decoration:none}
+    .brand-mark{width:2.5rem;height:2.5rem;border-radius:50%;overflow:hidden;border:2px solid var(--color-primary);flex-shrink:0}
+    .brand-mark img{width:100%;height:100%;object-fit:cover}
+    .brand-title{font-family:var(--font-display);font-size:var(--text-sm);letter-spacing:.05em}
+    .brand-subtitle{color:var(--color-text-muted);font-size:var(--text-xs)}
+    .nav-wrap{display:flex;align-items:center;gap:var(--space-3)}
+    .nav-links{display:flex;align-items:center;gap:var(--space-1);flex-wrap:wrap}
+    .nav-links a{min-height:44px;padding:0 var(--space-3);border-radius:var(--radius-full);
+      display:inline-flex;align-items:center;font-size:var(--text-sm);
+      transition:background var(--transition-interactive),transform var(--transition-interactive)}
+    .nav-links a:hover{background:var(--color-surface);transform:translateY(-1px)}
+    .lang-toggle{display:flex;align-items:center;background:var(--color-surface);
+      border:1px solid var(--color-border);border-radius:var(--radius-full);padding:2px}
+    .lang-btn{min-height:36px;padding:0 var(--space-3);border-radius:var(--radius-full);
+      font-size:var(--text-sm);font-weight:800;color:var(--color-text-muted);
+      transition:background var(--transition-interactive),color var(--transition-interactive)}
+    .lang-btn.active{background:linear-gradient(135deg,var(--color-primary),var(--color-primary-4));color:#51343f}
+    .back-link{display:inline-flex;align-items:center;gap:var(--space-2);
+      padding:var(--space-3) var(--space-4);border-radius:var(--radius-full);
+      font-size:var(--text-sm);color:var(--color-text-muted);
+      background:var(--color-surface);border:1px solid var(--color-border);
+      transition:transform var(--transition-interactive)}
+    .back-link:hover{transform:translateX(-4px)}
+    .page-hero{padding:var(--space-10) 0 var(--space-8)}
+    .tag-chip{display:inline-flex;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);
+      font-size:var(--text-xs);font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+      font-family:var(--font-display);margin-bottom:var(--space-4)}
+    .tag-art{background:rgba(255,217,168,.3);color:#b0761d}
+    .tag-novel{background:rgba(184,199,243,.3);color:#5f6da6}
+    .page-hero h1{font-family:var(--font-display);font-size:clamp(1.5rem,1rem + 2.2vw,2.6rem);
+      line-height:1.1;letter-spacing:.02em;margin-bottom:var(--space-4)}
+    .page-meta{color:var(--color-text-faint);font-size:var(--text-sm);margin-bottom:var(--space-6)}
+    .prose{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);
+      padding:clamp(var(--space-6),5vw,var(--space-12));box-shadow:var(--shadow-sm);margin-bottom:var(--space-8)}
+    .prose p{max-width:68ch;margin-bottom:var(--space-5);color:var(--color-text)}
+    .prose p.muted{color:var(--color-text-muted);font-style:italic}
+    .prose h2{font-family:var(--font-display);font-size:var(--text-lg);letter-spacing:.04em;
+      margin:var(--space-8) 0 var(--space-4)}
+    .prose blockquote{border-left:3px solid var(--color-primary);padding-left:var(--space-5);
+      margin:var(--space-6) 0;font-style:italic;color:var(--color-text-muted);font-size:var(--text-lg)}
+    .site-footer{padding:var(--space-8) 0 var(--space-12);color:var(--color-text-muted)}
+    .footer-box{border-top:1px solid var(--color-divider);padding-top:var(--space-4);
+      display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
+    @media(max-width:640px){
+      .header-inner{flex-direction:column;align-items:flex-start}
+      .nav-wrap{width:100%;justify-content:space-between}
+    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+    .chapter-list{display:grid;gap:var(--space-4);margin-bottom:var(--space-8)}
+    .chapter-card{background:var(--color-surface);border:1px solid var(--color-border);
+      border-radius:var(--radius-xl);padding:var(--space-5) var(--space-6);
+      display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--space-4);
+      transition:transform var(--transition-interactive),box-shadow var(--transition-interactive)}
+    .chapter-card:hover{transform:translateX(4px);box-shadow:var(--shadow-sm)}
+    .ch-num{font-family:var(--font-display);font-size:var(--text-xl);font-weight:900;
+      color:var(--color-primary);letter-spacing:-.01em;line-height:1;min-width:2.5rem}
+    .ch-body h3{font-size:var(--text-base);font-weight:800;margin-bottom:var(--space-1)}
+    .ch-body p{font-size:var(--text-sm);color:var(--color-text-muted);max-width:50ch}
+    .ch-status{display:inline-flex;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);
+      font-size:var(--text-xs);font-weight:800;font-family:var(--font-display);white-space:nowrap}
+    .status-live{background:rgba(169,215,195,.3);color:#4f7f6d}
+    .status-soon{background:rgba(255,217,168,.25);color:#b0761d}
+    .status-draft{background:rgba(184,199,243,.25);color:#5f6da6}
+    .novel-intro{background:linear-gradient(135deg,
+      color-mix(in srgb,var(--color-primary-3) 14%,var(--color-surface)),
+      color-mix(in srgb,var(--color-primary-4) 10%,var(--color-surface)));
+      border:1px solid var(--color-border);border-radius:var(--radius-xl);
+      padding:clamp(var(--space-6),5vw,var(--space-10));margin-bottom:var(--space-8);box-shadow:var(--shadow-sm)}
+    .novel-meta{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-5)}
+    .novel-badge{display:inline-flex;align-items:center;gap:var(--space-2);
+      padding:var(--space-2) var(--space-4);border-radius:var(--radius-full);
+      background:var(--color-surface);border:1px solid var(--color-border);
+      font-size:var(--text-sm);color:var(--color-text-muted)}
+    .section-label{font-family:var(--font-display);font-size:var(--text-xs);
+      letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-faint);
+      margin-bottom:var(--space-5)}
+    .teaser-block{background:var(--color-surface);border:1px solid var(--color-border);
+      border-radius:var(--radius-xl);padding:clamp(var(--space-5),4vw,var(--space-8));
+      margin-bottom:var(--space-8);box-shadow:var(--shadow-sm)}
+    .teaser-block p{max-width:65ch;margin-bottom:var(--space-4);color:var(--color-text)}
+    .teaser-block p.muted{color:var(--color-text-muted);font-style:italic}
+    .teaser-block blockquote{border-left:3px solid var(--color-primary);padding-left:var(--space-5);
+      margin:var(--space-5) 0;font-style:italic;color:var(--color-text-muted);font-size:var(--text-lg)}
+    @media(max-width:600px){
+      .chapter-card{grid-template-columns:auto 1fr;grid-template-rows:auto auto}
+      .ch-status{grid-column:2}
+    }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <div class="brand-mark"><img src="../assets/avatar.jpg" alt="Nisrina" width="40" height="40" loading="lazy"/></div>
+      <div>
+        <div class="brand-title">Nisrina Fatinawati</div>
+        <div data-id class="brand-subtitle">Ruang kata & imajinasi</div><div data-en class="brand-subtitle">Space of words & imagination</div>
+      </div>
+    </a>
+    <div class="nav-wrap">
+      <nav class="nav-links">
+        <span data-id><a href="../index.html#karya">← Karya</a></span><span data-en><a href="../index.html#karya">← Works</a></span>
+        <span data-id><a href="../index.html#tentang">Tentang</a></span><span data-en><a href="../index.html#tentang">About</a></span>
+      </nav>
+      <div class="lang-toggle" role="group" aria-label="Pilih bahasa">
+        <button class="lang-btn" data-lang="id" aria-label="Bahasa Indonesia">ID</button>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="container page-hero">
+    <a class="back-link" href="../index.html#karya"><span data-id>← Kembali ke karya</span><span data-en>← Back to works</span></a>
+    <div style="margin-top:var(--space-5)">
+      <div class="tag-chip tag-novel"><span data-id>Novel Serial</span><span data-en>Serial Novel</span></div>
+      <span data-id><h1>Rumah yang tumbuh dari halaman belakang</h1></span><span data-en><h1>The house that grew from the backyard</h1></span>
+      <span data-id><p class="page-meta">Fiksi slice-of-life · Serial per bab · Terus diperbarui</p></span><span data-en><p class="page-meta">Slice-of-life fiction · Chapter by chapter · Ongoing</p></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="novel-intro">
+      <span data-id><p style="font-family:var(--font-display);font-size:clamp(1rem,.9rem + .5vw,1.3rem);line-height:1.4;letter-spacing:.02em;margin-bottom:var(--space-4)">
+        "Ada yang berubah dari rumah itu setiap kali aku pulang. Bukan dindingnya. Bukan gentengnya.<br>Tapi ruang antara aku dan orang-orang yang pernah tinggal di dalamnya."
+      </p></span><span data-en><p style="font-family:var(--font-display);font-size:clamp(1rem,.9rem + .5vw,1.3rem);line-height:1.4;letter-spacing:.02em;margin-bottom:var(--space-4)">
+        "Something changes in that house every time I come back. Not the walls. Not the roof.<br>But the space between me and the people who once lived inside it."
+      </p></span>
+      <span data-id><p style="color:var(--color-text-muted);max-width:58ch">
+        Novel slice-of-life tentang Hana, seorang perempuan dua puluhan yang pulang ke kota lamanya 
+        untuk satu bulan — dan menemukan bahwa kenangan bisa tumbuh seperti tanaman liar di halaman belakang.
+      </p></span><span data-en><p style="color:var(--color-text-muted);max-width:58ch">
+        A slice-of-life novel about Hana, a woman in her twenties who returns to her old hometown 
+        for one month — and finds that memories can grow like wildflowers in a backyard.
+      </p></span>
+      <div class="novel-meta">
+        <span data-id><span class="novel-badge">🌿 Slice-of-life</span></span><span data-en><span class="novel-badge">🌿 Slice-of-life</span></span>
+        <span data-id><span class="novel-badge">🏡 Fiksi domestik</span></span><span data-en><span class="novel-badge">🏡 Domestic fiction</span></span>
+        <span data-id><span class="novel-badge">📖 Serial per bab</span></span><span data-en><span class="novel-badge">📖 Chapter by chapter</span></span>
+        <span data-id><span class="novel-badge">✦ Dalam penulisan</span></span><span data-en><span class="novel-badge">✦ In progress</span></span>
+      </div>
+    </div>
+
+    <div class="section-label"><span data-id>Cuplikan · Bab Pertama</span><span data-en>Excerpt · First Chapter</span></div>
+    <div class="teaser-block">
+      <span data-id>
+        <p>Hana tiba dengan satu koper, dua tas belanjaan penuh camilan, dan satu janji kepada dirinya sendiri: ia tidak akan menangis di depan rumah itu.</p>
+        <p>Tentu saja, ia menangis.</p>
+        <p>Bukan karena sedih. Lebih tepatnya karena pintu pagar itu — yang selalu seret sejak ia kelas lima SD — masih seret dengan cara yang persis sama. Dan ada sesuatu yang sangat menenangkan dari hal-hal yang tidak berubah.</p>
+        <blockquote>"Hal pertama yang kamu pelajari dari pulang adalah: kamu selalu meremehkan betapa rumah menyimpan dirimu."</blockquote>
+        <p>Ibunya sudah menunggu di teras, memegang segelas air dan wajah yang susah payah menahan senyum.</p>
+        <p class="muted">— Bab 1: Pintu yang Masih Seret</p>
+      </span><span data-en>
+        <p>Hana arrived with one suitcase, two shopping bags full of snacks, and one promise to herself: she would not cry in front of that house.</p>
+        <p>She cried, of course.</p>
+        <p>Not out of sadness. More because the garden gate — which had always been stiff since she was in fifth grade — was still stiff in exactly the same way. And there was something deeply comforting about things that don't change.</p>
+        <blockquote>"The first thing you learn about coming home is: you always underestimate how much a house holds you."</blockquote>
+        <p>Her mother was already waiting on the porch, holding a glass of water and a face that was barely managing to hold back a smile.</p>
+        <p class="muted">— Chapter 1: The Gate That Still Sticks</p>
+      </span>
+    </div>
+
+    <div class="section-label"><span data-id>Daftar Bab</span><span data-en>Chapter List</span></div>
+    <div class="chapter-list">
+      <div class="chapter-card">
+        <div class="ch-num">01</div>
+        <div class="ch-body">
+          <span data-id><h3>Pintu yang Masih Seret</h3></span><span data-en><h3>The Gate That Still Sticks</h3></span>
+          <span data-id><p>Hana pulang. Tidak ada yang berubah, dan itulah masalahnya.</p></span><span data-en><p>Hana comes home. Nothing has changed, and that is the problem.</p></span>
+        </div>
+        <span data-id><span class="ch-status status-live">✓ Sudah tayang</span></span><span data-en><span class="ch-status status-live">✓ Live now</span></span>
+      </div>
+      <div class="chapter-card">
+        <div class="ch-num">02</div>
+        <div class="ch-body">
+          <span data-id><h3>Kamar yang Tidak Pernah Benar-benar Hers</h3></span><span data-en><h3>A Room That Was Never Quite Hers</h3></span>
+          <span data-id><p>Ada kardus lama di bawah tempat tidur yang tidak pernah ia buka.</p></span><span data-en><p>There's an old box under the bed she never opened.</p></span>
+        </div>
+        <span data-id><span class="ch-status status-soon">✦ Segera</span></span><span data-en><span class="ch-status status-soon">✦ Coming soon</span></span>
+      </div>
+      <div class="chapter-card">
+        <div class="ch-num">03</div>
+        <div class="ch-body">
+          <span data-id><h3>Tetangga yang Masih Ingat Namanya</h3></span><span data-en><h3>The Neighbour Who Still Remembers Her Name</h3></span>
+          <span data-id><p>Pak Edi. Tukang bakso di ujung gang. Dan sebuah percakapan yang tidak ia harapkan.</p></span><span data-en><p>Pak Edi. A meatball seller at the end of the alley. And a conversation she didn't expect.</p></span>
+        </div>
+        <span data-id><span class="ch-status status-draft">◌ Draft</span></span><span data-en><span class="ch-status status-draft">◌ Draft</span></span>
+      </div>
+      <div class="chapter-card">
+        <div class="ch-num">04</div>
+        <div class="ch-body">
+          <span data-id><h3>Halaman Belakang</h3></span><span data-en><h3>The Backyard</h3></span>
+          <span data-id><p>Di sinilah semuanya dimulai dan berakhir — tanpa pernah memberi tahu siapapun terlebih dahulu.</p></span><span data-en><p>This is where everything begins and ends — without ever letting anyone know in advance.</p></span>
+        </div>
+        <span data-id><span class="ch-status status-draft">◌ Draft</span></span><span data-en><span class="ch-status status-draft">◌ Draft</span></span>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="container footer-box">
+  <span data-id><p>© 2026 Nisrina Fatinawati</p></span><span data-en><p>© 2026 Nisrina Fatinawati</p></span>
+  <span data-id><p>Ruang kata yang tumbuh perlahan.</p></span><span data-en><p>A space of words, growing slowly.</p></span>
+</div></footer><script>
+(function(){
+  let lang='id';
+  const btns=document.querySelectorAll('.lang-btn');
+  function applyLang(l){
+    lang=l;document.documentElement.setAttribute('lang',l);
+    btns.forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+    document.querySelectorAll('[data-id]').forEach(el=>el.style.display=l==='id'?'':'none');
+    document.querySelectorAll('[data-en]').forEach(el=>el.style.display=l==='en'?'':'none');
+  }
+  btns.forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+  applyLang('id');
+})();
+</script>
+</body>
+</html>
