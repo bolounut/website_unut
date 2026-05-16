@@ -196,18 +196,26 @@ body{font-family:'Nunito',sans-serif;background:var(--cream2);color:var(--text);
     const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('topbar-date').textContent = now.toLocaleDateString('id-ID', opts);
   }
+// Jalankan setelah DOM siap
+document.addEventListener('DOMContentLoaded', function() {
+  // Update tanggal & auto-refresh tiap menit
   updateDateTime();
+  setInterval(updateDateTime, 60000);
 
-  // Logout
-  function logout() {
-    sessionStorage.removeItem('nisrinart_auth');
-    window.location.href = './login.html';
+  // Aksi cepat: Lihat Website (card ke-4, index 3)
+  var actionCards = document.querySelectorAll('.action-card');
+  if (actionCards.length >= 4) {
+    actionCards[3].addEventListener('click', function() {
+      window.open('../index.html', '_blank');
+    });
   }
+});
 
-  // Aksi cepat → lihat website
-  document.querySelectorAll('.action-card')[3].addEventListener('click', function() {
-    window.open('../index.html', '_blank');
-  });
+// Logout
+function logout() {
+  sessionStorage.removeItem('nisrinart_auth');
+  window.location.href = './login.html';
+}
 </script>
 </body>
 </html>
