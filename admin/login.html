@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login — NisrinArt Dashboard</title>
-  //fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <style>
     :root {
       --ungu:   #473642;
@@ -29,7 +33,6 @@
       overflow: hidden;
     }
 
-    /* decorative blobs */
     body::before, body::after {
       content: '';
       position: fixed;
@@ -57,11 +60,7 @@
       box-shadow: 0 8px 40px rgba(71,54,66,0.13);
       position: relative;
       z-index: 1;
-    }
-
-    .brand {
       text-align: center;
-      margin-bottom: 2rem;
     }
 
     .brand-logo {
@@ -76,82 +75,27 @@
       font-size: 1.8rem;
       font-weight: 700;
       color: #fff;
-      letter-spacing: -1px;
     }
 
-    .brand h1 {
+    h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.6rem;
       font-weight: 700;
       color: var(--ungu);
-      letter-spacing: 0.5px;
+      margin-bottom: 0.25rem;
     }
 
-    .brand p {
+    .subtitle {
       font-size: 0.82rem;
       color: var(--muted);
-      margin-top: 0.25rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.25rem;
-    }
-
-    label {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--ungu);
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      margin-bottom: 0.45rem;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1.5px solid #e0d0d8;
-      border-radius: 10px;
-      background: var(--cream2);
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.95rem;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    input:focus {
-      border-color: var(--pink);
-      box-shadow: 0 0 0 3px rgba(217,149,177,0.18);
-    }
-
-    .password-wrap {
-      position: relative;
-    }
-
-    .toggle-pw {
-      position: absolute;
-      right: 0.9rem;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--muted);
-      font-size: 1rem;
-      padding: 0;
-      line-height: 1;
-    }
-
-    .error-msg {
-      display: none;
-      font-size: 0.8rem;
-      color: #c0392b;
-      margin-top: 0.4rem;
+      margin-bottom: 2rem;
     }
 
     .btn-login {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
       width: 100%;
       padding: 0.85rem;
       background: linear-gradient(135deg, var(--pink), var(--ungu));
@@ -161,17 +105,12 @@
       font-family: 'Nunito', sans-serif;
       font-size: 1rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
       cursor: pointer;
-      margin-top: 0.5rem;
       transition: opacity 0.2s, transform 0.15s;
     }
-
     .btn-login:hover { opacity: 0.92; transform: translateY(-1px); }
-    .btn-login:active { transform: translateY(0); }
 
     .footer-note {
-      text-align: center;
       margin-top: 1.5rem;
       font-size: 0.78rem;
       color: var(--muted);
@@ -179,7 +118,6 @@
 
     .back-link {
       display: block;
-      text-align: center;
       margin-top: 1.2rem;
       font-size: 0.82rem;
       color: var(--pink);
@@ -187,63 +125,51 @@
       font-weight: 600;
     }
     .back-link:hover { text-decoration: underline; }
+
+    .loading-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <div class="brand">
-      <div class="brand-logo">N</div>
-      <h1>NisrinArt Dashboard</h1>
-      <p>Masuk untuk mengelola konten</p>
-    </div>
+    <div class="brand-logo">N</div>
+    <h1>NisrinArt Dashboard</h1>
+    <p class="subtitle">Masuk untuk mengelola konten</p>
 
-    <form id="loginForm" onsubmit="handleLogin(event)">
-      <div class="form-group">
-        abel for="username">Username</label>
-        <input type="text" id="username" placeholder="Username admin" autocomplete="username" />
-      </div>
+    <button class="btn-login" id="loginBtn">
+      🔐 Masuk dengan Netlify Identity
+    </button>
 
-      <div class="form-group">
-        abel for="password">Password</label>
-        <div class="password-wrap">
-          <input type="password" id="password" placeholder="••••••••" autocomplete="current-password" />
-          <button type="button" class="toggle-pw" onclick="togglePw()" title="Lihat password">👁</button>
-        </div>
-        <div class="error-msg" id="errMsg">Username atau password salah.</div>
-      </div>
-
-      <button type="submit" class="btn-login">Masuk</button>
-    </form>
+    <p class="loading-text" id="loadingText" style="display:none;">Memverifikasi sesi...</p>
 
     <p class="footer-note">NisrinArt &copy; 2026 &mdash; Admin only</p>
     <a href="../index.html" class="back-link">← Kembali ke website</a>
   </div>
 
   <script>
-    // Kredensial sementara — ganti sesuai kebutuhan
-    const ADMIN_USER = 'nisrina';
-    const ADMIN_PASS = 'nisrinart2026';
-
-    function handleLogin(e) {
-      e.preventDefault();
-      const user = document.getElementById('username').value.trim();
-      const pass = document.getElementById('password').value;
-      const err  = document.getElementById('errMsg');
-
-      if (user === ADMIN_USER && pass === ADMIN_PASS) {
-        sessionStorage.setItem('nisrinart_auth', 'true');
+    // Cek apakah user sudah login — redirect langsung ke dashboard
+    window.netlifyIdentity.on('init', function(user) {
+      if (user) {
+        document.getElementById('loginBtn').style.display = 'none';
+        document.getElementById('loadingText').style.display = 'block';
         window.location.href = './index.html';
-      } else {
-        err.style.display = 'block';
-        document.getElementById('password').value = '';
       }
-    }
+    });
 
-    function togglePw() {
-      const inp = document.getElementById('password');
-      inp.type = inp.type === 'password' ? 'text' : 'password';
-    }
+    // Setelah login berhasil, redirect ke dashboard
+    window.netlifyIdentity.on('login', function() {
+      window.netlifyIdentity.close();
+      window.location.href = './index.html';
+    });
+
+    // Buka modal login Netlify saat tombol diklik
+    document.getElementById('loginBtn').addEventListener('click', function() {
+      window.netlifyIdentity.open('login');
+    });
   </script>
 
 </body>
