@@ -126,3 +126,88 @@ body{font-family:'Nunito',sans-serif;background:var(--cream2);color:var(--text);
       <div class="stat-card">
         <div class="stat-icon pink">💌</div>
         <div class="stat-value
+      <div class="stat-value">—</div>
+        <div class="stat-label">Pesan Masuk</div>
+        <div class="stat-sub">Menu menyusul</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon ungu">👁️</div>
+        <div class="stat-value">—</div>
+        <div class="stat-label">Pengunjung</div>
+        <div class="stat-sub">Menu menyusul</div>
+      </div>
+    </div>
+
+    <div class="section-heading">Aksi Cepat</div>
+    <div class="quick-actions">
+      <div class="action-card">
+        <div class="action-icon">📝</div>
+        <div class="action-label">Tambah Karya</div>
+        <div class="action-desc">Tulis puisi, prosa, atau karya baru</div>
+      </div>
+      <div class="action-card">
+        <div class="action-icon">🖼️</div>
+        <div class="action-label">Upload Galeri</div>
+        <div class="action-desc">Tambah foto atau ilustrasi</div>
+      </div>
+      <div class="action-card">
+        <div class="action-icon">✏️</div>
+        <div class="action-label">Edit Profil</div>
+        <div class="action-desc">Perbarui bio dan foto profil</div>
+      </div>
+      <div class="action-card">
+        <div class="action-icon">🌐</div>
+        <div class="action-label">Lihat Website</div>
+        <div class="action-desc">Buka halaman publik</div>
+      </div>
+    </div>
+
+    <div class="section-heading">Menu Mendatang</div>
+    <div class="coming-soon">
+      <div class="cs-icon">🌿</div>
+      <h3>Fitur sedang disiapkan</h3>
+      <p>Menu-menu di bawah ini akan segera hadir dan bisa dikelola dari dashboard ini.</p>
+      <div class="tag-list">
+        <span class="tag">Manajemen Karya</span>
+        <span class="tag">Galeri Foto</span>
+        <span class="tag">Kotak Pesan</span>
+        <span class="tag">Statistik Pengunjung</span>
+        <span class="tag">Pengaturan Akun</span>
+        <span class="tag">Tema Website</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="dash-footer">
+    <span>NisrinArt Dashboard &copy; 2026</span>
+    <span>Static Admin &mdash; v1.0</span>
+  </footer>
+</div>
+
+<script>
+  // Auth guard
+  if (!sessionStorage.getItem('nisrinart_auth')) {
+    window.location.href = './login.html';
+  }
+
+  // Tanggal & waktu di topbar
+  function updateDateTime() {
+    const now = new Date();
+    const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('topbar-date').textContent = now.toLocaleDateString('id-ID', opts);
+  }
+  updateDateTime();
+
+  // Logout
+  function logout() {
+    sessionStorage.removeItem('nisrinart_auth');
+    window.location.href = './login.html';
+  }
+
+  // Aksi cepat → lihat website
+  document.querySelectorAll('.action-card')[3].addEventListener('click', function() {
+    window.open('../index.html', '_blank');
+  });
+</script>
+</body>
+</html>
