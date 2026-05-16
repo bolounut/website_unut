@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menulis sebagai cara pulang ke diri sendiri — Nisrina Fatinawati</title>
+  <meta name="description" content="Kolom refleksi personal untuk pengalaman batin dan pandangan kecil yang ingin tinggal lebih lama." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23d995b1'/><stop offset='100%25' stop-color='%23b9d8cb'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='serif' font-size='20' font-weight='700' fill='white'>N</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #fffaf8; --color-surface: #fff7f6;
+      --color-border: rgba(88,63,78,0.12); --color-divider: rgba(88,63,78,0.08);
+      --color-text: #473642; --color-text-muted: #7e6877; --color-text-faint: #ad9aa7;
+      --color-primary: #d995b1; --color-primary-4: #f5d2ac;
+      --radius-full: 9999px; --radius-xl: 1.8rem;
+      --font-display: "Cormorant Garamond", serif; --font-body: "Nunito", sans-serif;
+      --transition: 180ms cubic-bezier(0.16,1,0.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100dvh;
+      background: radial-gradient(circle at top left, rgba(217,149,177,0.16), transparent 30%), radial-gradient(circle at bottom right, rgba(199,201,245,0.14), transparent 28%), var(--color-bg);
+      color: var(--color-text); font-family: var(--font-body); font-size: 1rem; line-height: 1.75;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { border: none; background: none; cursor: pointer; font: inherit; }
+    .container { width: min(calc(100% - 2rem), 720px); margin-inline: auto; }
+    .site-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--color-bg) 84%, transparent); border-bottom: 1px solid var(--color-divider); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; gap: 1rem; }
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark { width: 2.5rem; height: 2.5rem; border-radius: 50%; overflow: hidden; border: 2px solid var(--color-primary); }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+    .brand-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; }
+    .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+    .back-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1rem; border-radius: var(--radius-full); border: 1px solid var(--color-border); background: var(--color-surface); font-size: 0.875rem; color: var(--color-text-muted); transition: background var(--transition), transform var(--transition); }
+    .back-btn:hover { background: #fff0ea; transform: translateX(-2px); }
+    .lang-toggle { display: flex; align-items: center; padding: 2px; border-radius: var(--radius-full); border: 1px solid var(--color-border); background: var(--color-surface); }
+    .lang-btn { min-height: 32px; padding: 0 0.75rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 800; color: var(--color-text-muted); transition: background var(--transition), color var(--transition); }
+    .lang-btn.active { background: linear-gradient(135deg, var(--color-primary), var(--color-primary-4)); color: #5a3d4a; }
+    .article-wrap { padding: 3rem 0 5rem; }
+    .article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .tag { padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(217,149,177,0.2); color: #9c6079; }
+    .date, .read-time { font-size: 0.875rem; color: var(--color-text-faint); }
+    .sep { color: var(--color-text-faint); }
+    h1 { font-family: var(--font-display); font-size: clamp(2rem, 1.4rem + 2vw, 3.2rem); line-height: 1.1; font-weight: 600; letter-spacing: 0.01em; margin-bottom: 1.5rem; }
+    .lead { font-size: 1.1rem; color: var(--color-text-muted); border-left: 3px solid var(--color-primary); padding-left: 1rem; margin-bottom: 2.5rem; }
+    .divider { border: none; border-top: 1px solid var(--color-divider); margin: 2.5rem 0; }
+    .soon-card { padding: 3rem 2rem; border-radius: var(--radius-xl); border: 1px dashed rgba(217,149,177,0.4); background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface)); text-align: center; margin-top: 2rem; }
+    .soon-card .emoji { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .soon-card h2 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 0.75rem; }
+    .soon-card p { color: var(--color-text-muted); max-width: 38ch; margin-inline: auto; }
+    .site-footer { padding: 2.5rem 0 3rem; color: var(--color-text-muted); font-size: 0.875rem; }
+    .footer-box { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid var(--color-divider); }
+    [data-lang-content] { display: none; } [data-lang-content].is-visible { display: block; }
+    [data-lang-inline] { display: none; } [data-lang-inline].is-visible-inline { display: inline; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <div class="brand-mark"><img src="../assets/avatar.jpg" alt="Nisrina" width="40" height="40" /></div>
+        <span class="brand-title">NisrinArt</span>
+      </a>
+      <div class="nav-right">
+        <a class="back-btn" href="../index.html"><span data-lang-inline="id">← Kembali</span><span data-lang-inline="en">← Back</span></a>
+        <div class="lang-toggle" role="group" aria-label="Pilih bahasa">
+          <button class="lang-btn" data-lang="id" type="button">ID</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container article-wrap">
+      <div class="article-meta">
+        <span class="tag"><span data-lang-inline="id">Catatan</span><span data-lang-inline="en">Notes</span></span>
+        <span class="sep">·</span>
+        <span class="read-time"><span data-lang-inline="id">5 menit baca</span><span data-lang-inline="en">5 min read</span></span>
+        <span class="sep">·</span>
+        <span class="date">Personal note</span>
+      </div>
+      <h1 data-lang-content="id">Menulis sebagai cara pulang ke diri sendiri</h1>
+      <h1 data-lang-content="en">Writing as a way back to yourself</h1>
+      <p class="lead" data-lang-content="id">Kolom refleksi personal untuk pengalaman batin dan pandangan kecil yang ingin tinggal lebih lama.</p>
+      <p class="lead" data-lang-content="en">A personal reflection column for inner experiences and small thoughts that want to linger.</p>
+      <hr class="divider" />
+      <div class="soon-card">
+        <span class="emoji">🌿</span>
+        <h2 data-lang-content="id">Tulisan sedang dalam perjalanan</h2>
+        <h2 data-lang-content="en">Writing is on its way</h2>
+        <p data-lang-content="id">Halaman ini sedang disiapkan dengan telaten. Kembali lagi sebentar ya.</p>
+        <p data-lang-content="en">This page is being prepared carefully. Come back soon.</p>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-box">
+      <p data-lang-content="id">© 2026 Nisrina Fatinawati.</p>
+      <p data-lang-content="en">© 2026 Nisrina Fatinawati.</p>
+    </div>
+  </footer>
+  <script>
+    (function(){
+      var btns=document.querySelectorAll('.lang-btn'),blocks=document.querySelectorAll('[data-lang-content]'),inlines=document.querySelectorAll('[data-lang-inline]');
+      function show(lang){document.documentElement.setAttribute('lang',lang);btns.forEach(function(b){var a=b.dataset.lang===lang;b.classList.toggle('active',a);});blocks.forEach(function(el){el.classList.toggle('is-visible',el.dataset.langContent===lang);});inlines.forEach(function(el){el.classList.toggle('is-visible-inline',el.dataset.langInline===lang);});}
+      btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.lang);});});show('id');
+    })();
+  </script>
+</body>
+</html>
