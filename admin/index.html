@@ -4,7 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>NisrinArt Dashboard</title>
-//fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<!-- Netlify Identity Widget -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
 :root{--ungu:#473642;--pink:#d995b1;--pink-soft:#f0c4d9;--cream:#fffaf8;--cream2:#f5ede8;--sidebar-w:240px;--topbar-h:64px;--text:#3a2d38;--muted:#9b7d91;--border:#e8d8e0;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -62,9 +66,14 @@ body{font-family:'Nunito',sans-serif;background:var(--cream2);color:var(--text);
 .tag-list{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-top:1rem;}
 .tag{font-size:0.72rem;background:var(--cream2);border:1px solid var(--border);border-radius:20px;padding:0.25rem 0.75rem;color:var(--muted);font-weight:600;}
 .dash-footer{padding:1.25rem 1.75rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center;background:var(--cream);}
+/* Loading overlay */
+#authOverlay{position:fixed;inset:0;background:var(--cream2);display:flex;align-items:center;justify-content:center;z-index:9999;font-family:'Nunito',sans-serif;color:var(--muted);font-size:0.9rem;}
 </style>
 </head>
 <body>
+
+<!-- Auth loading overlay -->
+<div id="authOverlay">Memverifikasi sesi... ⏳</div>
 
 <aside class="sidebar">
   <div class="sidebar-brand">
@@ -97,14 +106,14 @@ body{font-family:'Nunito',sans-serif;background:var(--cream2);color:var(--text);
     </div>
     <div class="topbar-right">
       <div class="topbar-date" id="topbar-date">—</div>
-      <div class="topbar-avatar">N</div>
+      <div class="topbar-avatar" id="topbar-avatar">N</div>
     </div>
   </header>
 
   <main class="content">
     <div class="welcome-banner">
       <div>
-        <h2>Halo, Nisrina! 🌿</h2>
+        <h2 id="welcome-name">Halo, Nisrina! 🌿</h2>
         <p>Kelola karya, galeri, dan konten website kamu dari satu tempat.</p>
       </div>
       <div class="welcome-badge">✨ Admin Mode</div>
@@ -125,8 +134,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream2);color:var(--text);
       </div>
       <div class="stat-card">
         <div class="stat-icon pink">💌</div>
-        <div class="stat-value
-      <div class="stat-value">—</div>
+        <div class="stat-value">—</div>
         <div class="stat-label">Pesan Masuk</div>
         <div class="stat-sub">Menu menyusul</div>
       </div>
@@ -155,7 +163,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream2);color:var(--text);
         <div class="action-label">Edit Profil</div>
         <div class="action-desc">Perbarui bio dan foto profil</div>
       </div>
-      <div class="action-card">
+      <div class="action-card" id="lihatWebsiteCard">
         <div class="action-icon">🌐</div>
         <div class="action-label">Lihat Website</div>
         <div class="action-desc">Buka halaman publik</div>
@@ -180,42 +188,56 @@ body{font-family:'Nunito',sans-serif;background:var(--cream2);color:var(--text);
 
   <footer class="dash-footer">
     <span>NisrinArt Dashboard &copy; 2026</span>
-    <span>Static Admin &mdash; v1.0</span>
+    <span>Static Admin &mdash; v1.1</span>
   </footer>
 </div>
 
 <script>
-  // Auth guard
-  if (!sessionStorage.getItem('nisrinart_auth')) {
-    window.location.href = './login.html';
-  }
+  // Auth guard via Netlify Identity
+  window.netlifyIdentity.on('init', function(user) {
+    if (!user) {
+      // Tidak ada sesi aktif, redirect ke login
+      window.location.href = './login.html';
+    } else {
+      // User terautentikasi, tampilkan dashboard
+      document.getElementById('authOverlay').style.display = 'none';
 
-  // Tanggal & waktu di topbar
+      // Tampilkan nama user di welcome banner & avatar
+      var name = user.user_metadata && user.user_metadata.full_name
+        ? user.user_metadata.full_name.split(' ')[0]
+        : user.email.split('@')[0];
+      document.getElementById('welcome-name').textContent = 'Halo, ' + name + '! 🌿';
+      document.getElementById('topbar-greeting').textContent = 'Selamat datang, ' + name;
+      document.getElementById('topbar-avatar').textContent = name.charAt(0).toUpperCase();
+    }
+  });
+
+  // Update tanggal di topbar
   function updateDateTime() {
-    const now = new Date();
-    const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var now = new Date();
+    var opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('topbar-date').textContent = now.toLocaleDateString('id-ID', opts);
   }
-// Jalankan setelah DOM siap
-document.addEventListener('DOMContentLoaded', function() {
-  // Update tanggal & auto-refresh tiap menit
-  updateDateTime();
-  setInterval(updateDateTime, 60000);
 
-  // Aksi cepat: Lihat Website (card ke-4, index 3)
-  var actionCards = document.querySelectorAll('.action-card');
-  if (actionCards.length >= 4) {
-    actionCards[3].addEventListener('click', function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    updateDateTime();
+    setInterval(updateDateTime, 60000);
+
+    // Tombol Lihat Website
+    document.getElementById('lihatWebsiteCard').addEventListener('click', function() {
       window.open('../index.html', '_blank');
     });
-  }
-});
+  });
 
-// Logout
-function logout() {
-  sessionStorage.removeItem('nisrinart_auth');
-  window.location.href = './login.html';
-}
+  // Logout via Netlify Identity
+  function logout() {
+    window.netlifyIdentity.logout();
+  }
+
+  // Setelah logout, redirect ke login
+  window.netlifyIdentity.on('logout', function() {
+    window.location.href = './login.html';
+  });
 </script>
 </body>
 </html>
