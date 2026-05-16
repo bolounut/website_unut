@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — NisrinArt Dashboard</title>
+  //fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ungu:   #473642;
+      --pink:   #d995b1;
+      --pink-soft: #f0c4d9;
+      --cream:  #fffaf8;
+      --cream2: #f5ede8;
+      --text:   #3a2d38;
+      --muted:  #9b7d91;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream2);
+      font-family: 'Nunito', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* decorative blobs */
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    body::before {
+      width: 500px; height: 500px;
+      background: var(--pink);
+      top: -120px; left: -120px;
+    }
+    body::after {
+      width: 400px; height: 400px;
+      background: var(--ungu);
+      bottom: -100px; right: -100px;
+    }
+
+    .card {
+      background: var(--cream);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 8px 40px rgba(71,54,66,0.13);
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .brand-logo {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, var(--pink), var(--ungu));
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+
+    .brand h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--ungu);
+      letter-spacing: 0.5px;
+    }
+
+    .brand p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ungu);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #e0d0d8;
+      border-radius: 10px;
+      background: var(--cream2);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(217,149,177,0.18);
+    }
+
+    .password-wrap {
+      position: relative;
+    }
+
+    .toggle-pw {
+      position: absolute;
+      right: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 1rem;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .error-msg {
+      display: none;
+      font-size: 0.8rem;
+      color: #c0392b;
+      margin-top: 0.4rem;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 0.85rem;
+      background: linear-gradient(135deg, var(--pink), var(--ungu));
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .btn-login:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-login:active { transform: translateY(0); }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 1.2rem;
+      font-size: 0.82rem;
+      color: var(--pink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="brand">
+      <div class="brand-logo">N</div>
+      <h1>NisrinArt Dashboard</h1>
+      <p>Masuk untuk mengelola konten</p>
+    </div>
+
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        abel for="username">Username</label>
+        <input type="text" id="username" placeholder="Username admin" autocomplete="username" />
+      </div>
+
+      <div class="form-group">
+        abel for="password">Password</label>
+        <div class="password-wrap">
+          <input type="password" id="password" placeholder="••••••••" autocomplete="current-password" />
+          <button type="button" class="toggle-pw" onclick="togglePw()" title="Lihat password">👁</button>
+        </div>
+        <div class="error-msg" id="errMsg">Username atau password salah.</div>
+      </div>
+
+      <button type="submit" class="btn-login">Masuk</button>
+    </form>
+
+    <p class="footer-note">NisrinArt &copy; 2026 &mdash; Admin only</p>
+    <a href="../index.html" class="back-link">← Kembali ke website</a>
+  </div>
+
+  <script>
+    // Kredensial sementara — ganti sesuai kebutuhan
+    const ADMIN_USER = 'nisrina';
+    const ADMIN_PASS = 'nisrinart2026';
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value;
+      const err  = document.getElementById('errMsg');
+
+      if (user === ADMIN_USER && pass === ADMIN_PASS) {
+        sessionStorage.setItem('nisrinart_auth', 'true');
+        window.location.href = './index.html';
+      } else {
+        err.style.display = 'block';
+        document.getElementById('password').value = '';
+      }
+    }
+
+    function togglePw() {
+      const inp = document.getElementById('password');
+      inp.type = inp.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+
+</body>
+</html>
