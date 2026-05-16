@@ -1,0 +1,8 @@
+# Cloudflare Pages - Redirect Rules
+
+# Trailing slash normalization
+/karya/   /karya/index.html  301
+
+# Custom 404 fallback (Cloudflare Pages handles this via 404.html automatically,
+# but explicit rule ensures it works on all paths)
+/*    /404.html   404

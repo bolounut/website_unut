@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halaman tidak ditemukan — Nisrina Fatinawati</title>
+  <meta name="description" content="Halaman yang kamu cari tidak ada, tapi rumah kata ini masih terbuka." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #fffaf8;
+      --color-surface: #fff7f6;
+      --color-border: rgba(88,63,78,0.12);
+      --color-divider: rgba(88,63,78,0.08);
+      --color-text: #473642;
+      --color-text-muted: #7e6877;
+      --color-text-faint: #ad9aa7;
+      --color-primary: #d995b1;
+      --color-primary-2: #b9d8cb;
+      --color-primary-4: #f5d2ac;
+      --radius-full: 9999px;
+      --radius-xl: 1.8rem;
+      --shadow-md: 0 12px 30px rgba(95,71,83,0.08);
+      --font-display: "Cormorant Garamond", serif;
+      --font-body: "Nunito", sans-serif;
+      --transition: 180ms cubic-bezier(0.16,1,0.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100dvh;
+      display: flex; flex-direction: column;
+      background:
+        radial-gradient(circle at top left, rgba(217,149,177,0.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(185,216,203,0.14), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(199,201,245,0.14), transparent 28%),
+        var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.75;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { border: none; background: none; cursor: pointer; font: inherit; }
+    .container { width: min(calc(100% - 2rem), 720px); margin-inline: auto; }
+
+    /* HEADER */
+    .site-header {
+      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .header-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0; gap: 1rem;
+    }
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 2.5rem; height: 2.5rem; border-radius: 50%;
+      overflow: hidden; border: 2px solid var(--color-primary);
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+    .brand-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; }
+
+    /* MAIN */
+    main {
+      flex: 1; display: flex; align-items: center;
+      padding: 4rem 0;
+    }
+    .error-wrap { text-align: center; }
+
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 4rem + 5vw, 10rem);
+      line-height: 1; font-weight: 700;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+      font-weight: 600; margin-bottom: 1rem;
+    }
+
+    .error-desc {
+      color: var(--color-text-muted);
+      max-width: 42ch; margin-inline: auto;
+      margin-bottom: 2.5rem; font-size: 1.05rem;
+    }
+
+    .error-actions {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 0.75rem;
+    }
+
+    .btn {
+      min-height: 46px; padding: 0 1.5rem;
+      border-radius: var(--radius-full);
+      display: inline-flex; align-items: center;
+      justify-content: center; font-weight: 800;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-4));
+      color: #5a3d4a; box-shadow: var(--shadow-md);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+
+    .divider-soft {
+      border: none; border-top: 1px solid var(--color-divider);
+      margin: 2.5rem auto; max-width: 200px;
+    }
+
+    .suggestion-label {
+      font-size: 0.8rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--color-text-faint); margin-bottom: 1rem;
+    }
+
+    .suggestion-links {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 0.5rem;
+    }
+    .suggestion-link {
+      padding: 0.4rem 1rem; border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      font-size: 0.875rem; color: var(--color-text-muted);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .suggestion-link:hover { background: #fff0ea; transform: translateY(-1px); }
+
+    /* FOOTER */
+    .site-footer {
+      padding: 1.5rem 0 2rem;
+      color: var(--color-text-faint); font-size: 0.8rem;
+      text-align: center;
+      border-top: 1px solid var(--color-divider);
+    }
+
+    [data-lang-content] { display: none; }
+    [data-lang-content].is-visible { display: block; }
+    [data-lang-inline] { display: none; }
+    [data-lang-inline].is-visible-inline { display: inline; }
+    .btn[data-lang-content].is-visible { display: inline-flex; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/index.html">
+        <div class="brand-mark">
+          <img src="/assets/avatar.jpg" alt="Nisrina" width="40" height="40" />
+        </div>
+        <span class="brand-title">NisrinArt</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <div style="display:flex;align-items:center;padding:2px;border-radius:9999px;border:1px solid rgba(88,63,78,0.12);background:#fff7f6;">
+          <button class="lang-btn" data-lang="id" type="button" style="min-height:32px;padding:0 0.75rem;border-radius:9999px;font-size:0.8rem;font-weight:800;color:#7e6877;border:none;background:none;cursor:pointer;">ID</button>
+          <button class="lang-btn" data-lang="en" type="button" style="min-height:32px;padding:0 0.75rem;border-radius:9999px;font-size:0.8rem;font-weight:800;color:#7e6877;border:none;background:none;cursor:pointer;">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container error-wrap">
+      <div class="error-code">404</div>
+
+      <h1 class="error-title" data-lang-content="id">Halaman ini sedang tidur,<br />atau mungkin belum lahir.</h1>
+      <h1 class="error-title" data-lang-content="en">This page is asleep,<br />or perhaps not yet born.</h1>
+
+      <p class="error-desc" data-lang-content="id">
+        URL yang kamu ketik tidak ada di sini. Mungkin salah ketik, mungkin halamannya sudah pindah,
+        atau memang belum sempat ditulis.
+      </p>
+      <p class="error-desc" data-lang-content="en">
+        The URL you typed doesn't exist here. Maybe a typo, maybe the page moved,
+        or it simply hasn't been written yet.
+      </p>
+
+      <div class="error-actions">
+        <a class="btn btn-primary" href="/index.html" data-lang-content="id">← Kembali ke beranda</a>
+        <a class="btn btn-primary" href="/index.html" data-lang-content="en">← Back to home</a>
+        <a class="btn btn-secondary" href="/index.html#karya" data-lang-content="id">Lihat karya</a>
+        <a class="btn btn-secondary" href="/index.html#karya" data-lang-content="en">See works</a>
+      </div>
+
+      <hr class="divider-soft" />
+
+      <p class="suggestion-label" data-lang-content="id">Atau coba halaman ini</p>
+      <p class="suggestion-label" data-lang-content="en">Or try these pages</p>
+
+      <div class="suggestion-links">
+        <a class="suggestion-link" href="/karya/ketika-sunyi-lebih-jujur.html" data-lang-content="id">Opini</a>
+        <a class="suggestion-link" href="/karya/ketika-sunyi-lebih-jujur.html" data-lang-content="en">Opinion</a>
+        <a class="suggestion-link" href="/karya/di-meja-tempat-hujan.html" data-lang-content="id">Puisi</a>
+        <a class="suggestion-link" href="/karya/di-meja-tempat-hujan.html" data-lang-content="en">Poetry</a>
+        <a class="suggestion-link" href="/karya/teddy-bear-di-jendela.html" data-lang-content="id">Cerpen</a>
+        <a class="suggestion-link" href="/karya/teddy-bear-di-jendela.html" data-lang-content="en">Short Story</a>
+        <a class="suggestion-link" href="/karya/novel.html" data-lang-content="id">Novel</a>
+        <a class="suggestion-link" href="/karya/novel.html" data-lang-content="en">Novel</a>
+        <a class="suggestion-link" href="/karya/art.html">Art</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Nisrina Fatinawati</p>
+  </footer>
+
+  <script>
+    (function(){
+      var btns=document.querySelectorAll('.lang-btn');
+      var blocks=document.querySelectorAll('[data-lang-content]');
+      var inlines=document.querySelectorAll('[data-lang-inline]');
+      function show(lang){
+        document.documentElement.setAttribute('lang',lang);
+        btns.forEach(function(b){
+          var a=b.dataset.lang===lang;
+          b.classList.toggle('active',a);
+          b.style.background=a?'linear-gradient(135deg,#d995b1,#f5d2ac)':'';
+          b.style.color=a?'#5a3d4a':'';
+        });
+        blocks.forEach(function(el){el.classList.toggle('is-visible',el.dataset.langContent===lang);});
+        inlines.forEach(function(el){el.classList.toggle('is-visible-inline',el.dataset.langInline===lang);});
+      }
+      btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.lang);});});
+      show('id');
+    })();
+  </script>
+</body>
+</html>
